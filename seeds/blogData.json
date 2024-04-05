@@ -1,18 +1,9 @@
-{
-  "blogs": [
-    {
-      "id": 1,
-      "title": "First Blog Post",
-      "description": "This is the first blog post.",
-      "date_created": "2024-04-03T10:00:00Z",
-      "user_id": 1
-    },
-    {
-      "id": 2,
-      "title": "Second Blog Post",
-      "description": "This is the second blog post.",
-      "date_created": "2024-04-03T11:00:00Z",
-      "user_id": 2
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "title": "First Blog Post",
+    "description": "This is the first blog post.",
+    "date_created": "2024-04-03T10:00:00Z",
+    "user_id": 1
+  }
+]
