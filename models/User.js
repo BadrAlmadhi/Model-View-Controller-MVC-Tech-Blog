@@ -17,7 +17,7 @@ User.init(
       autoIncrement: true,
     },
     username: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
@@ -29,7 +29,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
   },
   {
@@ -40,19 +39,16 @@ User.init(
       },
       beforeUpdate: async (updateUserData) => {
         if (updateUserData.password) {
-          updateUserData.password = await bcrypt.hash( updateUserData.password, 10);
+          updateUserData.password = await bcrypt.hash(updateUserData.password, 10);
         }
         return updateUserData;
       },
     },
-  },
-  {
-    // make connection to between sequelize and database
     sequelize,
     timestamps: false,
     underscored: true,
     freezeTableName: true,
-    moduleName: "user",
+    modelName: "user",
   }
 );
 
