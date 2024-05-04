@@ -30,4 +30,4 @@ const seedData = async () => {
   process.exit(0);
 };
 
-seedData();
+seedData({ User, Blog, Comment});

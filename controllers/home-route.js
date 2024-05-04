@@ -1,12 +1,10 @@
 const router = require("express").Router();
-const e = require("express");
 const { User, Comment, Blog } = require("../models");
 const withAuth = require("../utils/auth");
-const { param } = require("./api");
-const session = require("express-session");
 
 // render home page
 router.get("/", async (req, res) => {
+  // get all blogs
   try {
     const blogData = await Blog.findAll({
       include: [
@@ -16,14 +14,16 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    const blog = blogData.map((blog) =>
+
+    // Serialize data so the template can read
+    const blogs = blogData.map((blog) =>
       blog.get({
         plain: true,
       })
     );
 
-    res.render("homePage", {
-      blog,
+    res.render("homepage", {
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
 
 router.get("/blog/:id", async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.param.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -58,7 +58,7 @@ router.get("/blog/:id", async (req, res) => {
   }
 });
 
-router.get("dashboard", withAuth, async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: {
