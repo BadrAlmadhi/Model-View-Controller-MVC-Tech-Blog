@@ -1,14 +1,24 @@
-const logout = async () => {
-    const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+const loginFormHandler = async (event) => {
+  event.preventDefault();
+
+  const email = document.querySelector("#email-login").value;
+  const password = document.querySelector("#password-login").value;
+
+  if (email && password) {
+    const response = await fetch("/api/users/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "content-Type": "application/json" },
     });
-  
+
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace("/");
     } else {
-      alert(response.statusText);
+      alert("Filed to log in");
     }
-  };
-  
-  document.querySelector('#logout').addEventListener('click', logout);
+  }
+};
+
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);

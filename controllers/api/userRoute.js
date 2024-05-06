@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
 // logout 
 router.post("/logout", async (req, res) => {
   if (req.session.logged_in) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
       res.status(204).end();
     });
   } else {

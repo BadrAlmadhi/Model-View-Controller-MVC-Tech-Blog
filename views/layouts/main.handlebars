@@ -18,15 +18,21 @@
     <nav class="navbar navbar-light bg-dark p-5">
       <form class="container-fluid justify-content-start">
         <a href="/" class="btn btn-outline-success me-4" type="button">Home</a>
+        {{#if logged_in}}
         <a href="/dashboard" class="btn btn-sm btn-outline-secondary me-4" type="button">Dashboard</a>        
-        <a class="btn btn-sm btn-outline-secondary me-4" type="button">Logout</a>
+        <a class="btn btn-sm btn-outline-secondary me-4" id="logout" type="button">Logout</a>
+        {{else}}
         <a href="/login" class="btn btn-sm btn-outline-secondary" type="button">Login</a>
+        {{/if}}
       </form>
       <h1 class="text-white p-3">The Tech Blog</h1>
     </nav>
     <main>
       {{{body}}}
     </main>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 
 </html>
