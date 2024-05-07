@@ -1,0 +1,25 @@
+<div>
+<div>
+    <h2>{{title}}</h2>
+</div>
+<div>
+    <p>Created by {{user.username}} on {{date_created}}</p>
+</div>
+<div>
+    <p>{{description}}</p>
+</div>
+</div>
+
+{{#if logged_in}}
+<form action="A">
+    <div>
+        <textarea name="comment" id="comment-description"></textarea>
+    </div>
+    <div>
+        <button>Add comment</button>
+    </div>
+</form>
+{{/if}}
+
+
+
