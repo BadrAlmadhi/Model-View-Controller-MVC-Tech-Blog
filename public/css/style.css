@@ -107,6 +107,10 @@
   }
   
 
-.container {
-  
+.container-comments{
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  padding: 5ch;
 }
+

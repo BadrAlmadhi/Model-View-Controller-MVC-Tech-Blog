@@ -1,25 +1,31 @@
-<div>
-<div>
-    <h2>{{title}}</h2>
-</div>
-<div>
-    <p>Created by {{user.username}} on {{date_created}}</p>
-</div>
-<div>
-    <p>{{description}}</p>
-</div>
-</div>
+<div
+    class="container position-absolute top-50 start-50 translate-middle border border-2 rounded-3 bg-light">
+    <div class="bg-dark m-4 border border-2 rounded-3 ">
+      <h2 class="text-light m-2">
+        {{title}}
+      </h2>
+    </div>
+    <div class="border m-4 border-2 text-dark rounded-3">
+      <p class="m-3">
+        Created by {{user.name}} on {{format_date date_created}}
+      </p>
+    </div>
+    <div class="border m-4 border-2 text-dark rounded-3">
+      <p class="m-3">
+        {{description}}
+      </p>
+    </div>
+  </div>
 
 {{#if logged_in}}
-<form action="A">
-    <div>
-        <textarea name="comment" id="comment-description"></textarea>
+  <form class="container-comments">
+    <div class="m-1">
+      <textarea name="comment" id="comment-description"></textarea>
     </div>
-    <div>
-        <button>Add comment</button>
+    <div class="m-1 text-center">
+      <button class="add-comment bg-dark text-light p-2 border rounded-3">Add Comment</button>
     </div>
-</form>
+  </form>
 {{/if}}
 
-
-
+<script src="../js/comments.js"></script>

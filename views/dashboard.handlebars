@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-auto">
+        <h2><span>~</span> Welcome, {{username}}</h2>
+    </div>
+</div>
+
+<div
+    class="container position-absolute top-50 start-50 translate-middle border border-2 rounded-3 bg-light">
+    <div class="bg-dark m-4 border border-2 rounded-3 ">
+      <h3 class="text-light m-2">
+        Create a new blog
+      </h3>
+    </div>
+    <div class="border m-4 border-2 text-dark rounded-3">
+      <input class="m-3" type="text" class="title-input" name="blog-title" placeholder="Blog Title" ></input>
+    </div>
+    <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+  <label for="floatingTextarea">Comments</label>
+</div>
+    <div class=" m-4 border-2 rounded-3">
+      <button class="create-blog btn btn-lg btn-dark" type="submit">Create</button>
+    </div>
+  </div>
+{{!-- origin  --}}
+{{!-- <div class="row mt-4">
+    <div class="col-md-6">
+        
+        <form>
+            <div class="form-input">
+                <input type="text" class="title-input" name="blog-title" placeholder="Blog Title">
+            </div>
+            <div>
+                <textarea name="blog-description" id="blog-disc" placeholder="Blog Content"></textarea>
+            </div>
+            <div>
+                <button class="create-blog" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</div> --}}
+
+{{#if blogs.length}}
+  <div class="col-md-6 blog-list">
+    <h3>Current Blogs:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+<script src="../public/js/dashboard.js"></script>
