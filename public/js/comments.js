@@ -22,4 +22,4 @@ const commentFromHandler = async function (event) {
 
 document
   .querySelector('.add-comment')
-  .addEventListener("submit", commentFromHandler);
+  .addEventListener("click", commentFromHandler);

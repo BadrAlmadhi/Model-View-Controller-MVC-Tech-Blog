@@ -114,3 +114,15 @@
   padding: 5ch;
 }
 
+.current-blogs {
+  position: absolute;
+  bottom: 15;
+  left: 25%;
+}
+
+.add-blog{
+  margin-top: 60px;
+}
+.signUp-form{
+  margin-top: 80px;
+}
