@@ -1,7 +1,7 @@
 const commentFromHandler = async function (event) {
   event.preventDefault();
 
-  const blog_id = document.querySelector('.add-comment ').value.trim();
+  const blog_id = document.querySelector('.add-comment input').value.trim();
   const commentDescription = document.getElementById('comment-description').value.trim();
 
   console.log('New Cooemnt', blog_id);
@@ -16,7 +16,7 @@ const commentFromHandler = async function (event) {
         commentDescription,
       }),
       headers: {
-        content_Type: "application/json",
+        "Content-Type": "application/json", 
       },
     });
     document.location.reload();
