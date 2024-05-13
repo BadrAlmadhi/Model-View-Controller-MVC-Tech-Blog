@@ -12,7 +12,7 @@
       </h3>
     </div>
     <div class="border m-4 border-2 text-dark rounded-3">
-      <input class="m-3" type="text" class="title-input" name="blog-title" placeholder="Blog Title" ></input>
+      <input class="m-3" type="text" id="title-input" name="blog-title" placeholder="Blog Title" ></input>
     </div>
     <div class="form-floating m-4">
   <textarea class="form-control" placeholder="Leave a comment here" id="blog-disc"></textarea>
@@ -35,11 +35,11 @@
         <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="delete-btn btn btn-danger" data-id="{{blog.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
 
-<script src="../public/js/dashboard.js"></script>
+<script src="../js/dashboard.js"></script>

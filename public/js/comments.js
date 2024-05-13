@@ -1,8 +1,11 @@
 const commentFromHandler = async function (event) {
   event.preventDefault();
 
-  const blog_id = document.getElementById("new-comment").value.trim();
+  const blog_id = document.querySelector('.add-comment ').value.trim();
   const commentDescription = document.getElementById('comment-description').value.trim();
+
+  console.log('New Cooemnt', blog_id);
+  console.log('Description:', commentDescription)
 
   if (commentDescription) {
     
